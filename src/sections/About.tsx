@@ -32,7 +32,7 @@ export const About: React.FC = () => {
   };
 
   const textFadeVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -41,26 +41,31 @@ export const About: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden" id="sobre">
-      <div className="absolute right-0 top-1/4 text-[12rem] font-serif text-stone-50/80 pointer-events-none select-none tracking-tighter font-light">
+    <section
+      className="py-16 md:py-32 bg-white relative overflow-hidden"
+      id="sobre"
+    >
+      {/* Escondido no mobile para evitar poluição visual e quebra de scroll horizontal */}
+      <div className="hidden md:block absolute right-0 top-1/4 text-[12rem] font-serif text-stone-50/80 pointer-events-none select-none tracking-tighter font-light">
         Pamela
       </div>
 
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-          <div className="w-full md:w-1/2 order-2 md:order-1 flex justify-center">
+      <div className="container mx-auto px-6 sm:px-8 max-w-6xl relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-24">
+          {/* FOTO DA PÂMELA: Calibrada para o iPhone 12 */}
+          <div className="w-full md:w-1/2 order-2 md:order-1 flex justify-center px-4 sm:px-0">
             <motion.div
-              className="relative w-full max-w-sm aspect-[3/4] cursor-pointer"
+              className="relative w-full max-w-[280px] md:max-w-sm aspect-square md:aspect-[3/4] cursor-pointer p-3 bg-white rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-stone-100"
               style={{ perspective: 1000 }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="w-full h-full rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-4 border-stone-50 relative z-10 transition-all duration-200 ease-out"
+                className="w-full h-full rounded-[1.5rem] md:rounded-[1.8rem] overflow-hidden border-2 border-stone-50 relative z-10 transition-all duration-200 ease-out"
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
               >
                 <img
@@ -68,11 +73,12 @@ export const About: React.FC = () => {
                   alt="Pâmela - Decoradora"
                   className="w-full h-full object-cover select-none pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/10 to-transparent mix-blend-multiply" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/5 to-transparent mix-blend-multiply" />
               </motion.div>
 
+              {/* Sombra decorativa traseira suavizada e responsiva */}
               <motion.div
-                className="absolute -bottom-4 -right-4 bg-amber-500/10 w-full h-full rounded-[2rem] -z-10 border border-amber-500/20"
+                className="absolute -bottom-3 -right-3 bg-amber-500/5 w-full h-full rounded-[2rem] -z-10 border border-amber-500/10 hidden sm:block"
                 style={{
                   rotateX,
                   rotateY,
@@ -83,42 +89,43 @@ export const About: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="w-full md:w-1/2 order-1 md:order-2">
+          {/* TEXTO CONTEÚDO */}
+          <div className="w-full md:w-1/2 order-1 md:order-2 text-center md:text-left">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-80px" }}
               variants={{
-                visible: { transition: { staggerChildren: 0.2 } },
+                visible: { transition: { staggerChildren: 0.15 } },
               }}
-              className="space-y-6"
+              className="space-y-5 md:space-y-6"
             >
               <motion.div
                 variants={textFadeVariants}
-                className="flex items-center gap-2 text-amber-600 font-medium tracking-widest uppercase text-xs sm:text-sm"
+                className="flex items-center justify-center md:justify-start gap-2 text-amber-600 font-medium tracking-widest uppercase text-xs sm:text-sm"
               >
-                <Sparkles size={14} />
+                <Sparkles size={13} />
                 <span>A Essência do Design</span>
               </motion.div>
 
               <motion.h2
                 variants={textFadeVariants}
-                className="text-4xl sm:text-5xl font-serif text-stone-900 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-serif text-stone-900 leading-tight tracking-tight"
               >
-                A mente criativa por trás <br />
-                <span className="text-amber-600 italic font-normal">
+                A mente criativa por trás{" "}
+                <span className="text-amber-600 italic font-normal block sm:inline">
                   de cada detalhe
                 </span>
               </motion.h2>
 
               <motion.div
                 variants={textFadeVariants}
-                className="w-12 h-[2px] bg-amber-500 rounded my-2"
+                className="w-12 h-[1.5px] bg-amber-500/60 rounded mx-auto md:mx-0 my-1"
               />
 
               <motion.p
                 variants={textFadeVariants}
-                className="text-stone-600 text-lg leading-relaxed font-light"
+                className="text-stone-600 text-base sm:text-lg leading-relaxed font-light px-2 sm:px-0"
               >
                 Olá, eu sou a <strong>Pâmela</strong>. Minha paixão por festas
                 começou cedo, mas foi ao decorar o primeiro aniversário da minha
@@ -127,7 +134,7 @@ export const About: React.FC = () => {
 
               <motion.p
                 variants={textFadeVariants}
-                className="text-stone-600 text-lg leading-relaxed font-light"
+                className="text-stone-600 text-base sm:text-lg leading-relaxed font-light px-2 sm:px-0"
               >
                 Para nós, decorar não é só espalhar balões e flores pelo salão.
                 É sobre criar o cenário onde os sorrisos mais sinceros da sua
@@ -139,22 +146,22 @@ export const About: React.FC = () => {
               {/* Grid de Diferenciais de Negócio */}
               <motion.div
                 variants={textFadeVariants}
-                className="grid grid-cols-2 gap-8 pt-4 border-t border-stone-100"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-5 border-t border-stone-100 text-left"
               >
                 <div className="space-y-1">
-                  <h4 className="font-serif font-bold text-stone-900 text-lg">
+                  <h4 className="font-serif font-medium text-stone-900 text-base sm:text-lg">
                     Design Exclusivo
                   </h4>
-                  <p className="text-sm text-stone-500 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
                     Sem fórmulas prontas. Cada celebração recebe um conceito
                     visual totalmente inédito.
                   </p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-serif font-bold text-stone-900 text-lg">
+                  <h4 className="font-serif font-medium text-stone-900 text-base sm:text-lg">
                     Pontualidade Absoluta
                   </h4>
-                  <p className="text-sm text-stone-500 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
                     Cronograma milimétrico para que sua única preocupação seja
                     viver o momento.
                   </p>
