@@ -35,12 +35,12 @@ export const Hero: React.FC = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-[#FAF9F6]">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-[#FAF9F6]">
       <motion.div
         className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-amber-200/20 rounded-full blur-[120px]"
         animate={{ x: [0, 30, 0], y: [0, 50, 0] }}
@@ -62,38 +62,38 @@ export const Hero: React.FC = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           <div className="flex-1 text-center lg:text-left">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-6"
+              className="space-y-5"
             >
               <motion.div
                 variants={itemVariants}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/5 border border-amber-500/10 text-amber-700 font-medium"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/5 border border-amber-500/10 text-amber-700 font-medium"
               >
-                <Sparkles size={16} className="animate-pulse" />
-                <span className="tracking-widest uppercase text-xs sm:text-sm">
+                <Sparkles size={14} className="animate-pulse" />
+                <span className="tracking-widest uppercase text-[10px] sm:text-xs">
                   Transformando espaços em histórias
                 </span>
               </motion.div>
 
               <motion.h1
                 variants={itemVariants}
-                className="text-5xl sm:text-6xl md:text-7xl font-serif text-stone-900 leading-[1.1] tracking-tight"
+                className="text-4xl sm:text-6xl md:text-7xl font-serif text-stone-900 leading-[1.15] tracking-tight"
               >
                 Pâmela <br />
                 <span className="text-amber-600 font-normal italic relative">
                   Decor
-                  <span className="absolute bottom-2 left-0 w-full h-[2px] bg-amber-200/60 -z-10" />
+                  <span className="absolute bottom-1 left-0 w-full h-[2px] bg-amber-200/60 -z-10" />
                 </span>
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg text-stone-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light"
+                className="text-sm sm:text-lg text-stone-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light px-1"
               >
                 Você sonhou com cada detalhe, e nós estamos aqui para tornar
                 real. Criamos cenários autorais que não apenas encantam os
@@ -103,22 +103,22 @@ export const Hero: React.FC = () => {
 
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4"
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2"
               >
                 <a
                   href="#orcamento"
-                  className="w-full sm:w-auto px-8 py-4 bg-stone-900 text-white rounded-full font-medium tracking-wide hover:bg-stone-800 transition-all flex items-center justify-center gap-2 shadow-xl shadow-stone-900/10 active:scale-98 group"
+                  className="w-full sm:w-auto px-7 py-3.5 bg-stone-900 text-white rounded-full font-medium tracking-wide hover:bg-stone-800 transition-all flex items-center justify-center gap-2 shadow-xl shadow-stone-900/10 active:scale-98 group text-xs sm:text-sm"
                 >
-                  <Calendar size={18} />
+                  <Calendar size={16} />
                   Solicitar Orçamento
                   <ArrowRight
-                    size={16}
+                    size={14}
                     className="transform group-hover:translate-x-1 transition-transform"
                   />
                 </a>
                 <a
                   href="#portfolio"
-                  className="w-full sm:w-auto px-8 py-4 border border-stone-300 text-stone-800 rounded-full font-medium tracking-wide hover:bg-stone-100 hover:border-stone-400 transition-all text-center active:scale-98"
+                  className="w-full sm:w-auto px-7 py-3.5 border border-stone-300 text-stone-800 rounded-full font-medium tracking-wide hover:bg-stone-100 hover:border-stone-400 transition-all text-center active:scale-98 text-xs sm:text-sm"
                 >
                   Conhecer Portfólio
                 </a>
@@ -126,19 +126,18 @@ export const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Lado Direito: Container da Foto com Efeito Tilt 3D Real no Mouse */}
-          <div className="flex-1 w-full flex justify-center items-center">
+          <div className="flex-1 w-full flex justify-center items-center px-2 sm:px-0">
             <motion.div
-              className="relative w-full max-w-[450px] aspect-[4/5] cursor-pointer"
+              className="relative w-full max-w-[340px] sm:max-w-[450px] aspect-[4/5] cursor-pointer"
               style={{ perspective: 1000 }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.div
-                className="w-full h-full rounded-[2.5rem] bg-stone-200 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] border-[6px] border-white relative z-10 transition-all duration-200 ease-out"
+                className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] bg-stone-200 overflow-hidden shadow-[0_20px_45px_-10px_rgba(0,0,0,0.15)] border-4 sm:border-[6px] border-white relative z-10 transition-all duration-200 ease-out"
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
               >
                 <img
@@ -146,32 +145,29 @@ export const Hero: React.FC = () => {
                   alt="Decoração Exclusiva de Evento"
                   className="w-full h-full object-cover pointer-events-none select-none scale-102"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
               </motion.div>
 
-              {/* Card Flutuante com Glassmorphism */}
               <motion.div
-                className="absolute -bottom-6 -left-6 sm:-left-10 z-20 bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/40 max-w-[220px]"
-                animate={{ y: [0, -12, 0] }}
+                className="absolute -bottom-4 left-4 sm:left-auto sm:-left-10 z-20 bg-white/95 backdrop-blur-md p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-white/40 max-w-[180px] sm:max-w-[220px]"
+                animate={{ y: [0, -10, 0] }}
                 transition={{
                   duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                style={{ transform: "translateZ(40px)" }} // Empurra o card "para frente" no eixo Z
+                style={{ transform: "translateZ(40px)" }}
               >
-                <div className="text-amber-600 font-serif text-3xl font-bold">
+                <div className="text-amber-600 font-serif text-2xl sm:text-3xl font-bold">
                   100%
                 </div>
-                <div className="text-stone-700 text-xs sm:text-sm font-medium mt-1 leading-snug">
+                <div className="text-stone-700 text-[11px] sm:text-sm font-medium mt-0.5 leading-snug">
                   Projetos autorais e personalizados
                 </div>
               </motion.div>
 
-              {/* Linha geométrica elegante atrás da imagem (Contorno de profundidade) */}
               <motion.div
-                className="absolute -top-6 -right-6 w-full h-full border border-amber-500/20 rounded-[2.5rem] -z-10"
+                className="absolute -top-4 -right-4 w-full h-full border border-amber-500/10 rounded-[2rem] sm:rounded-[2.5rem] -z-10 hidden sm:block"
                 style={{
                   rotateX,
                   rotateY,
