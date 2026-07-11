@@ -1,4 +1,3 @@
-// src/components/Footer.tsx
 import React from "react";
 import { Heart } from "lucide-react";
 
@@ -6,10 +5,9 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-stone-900 text-stone-400 py-16 border-t border-stone-800 relative z-10">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <footer className="bg-stone-900 text-stone-400 py-10 md:py-16 border-t border-stone-800 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          {/* Marca / Logo Textual */}
           <div className="space-y-1">
             <h3 className="text-white font-serif text-2xl font-light tracking-wide">
               Pâmela{" "}
@@ -22,8 +20,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Links de Navegação Rápidos */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-wider font-medium">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-wider font-medium">
             <a
               href="#sobre"
               className="hover:text-amber-400 transition-colors duration-300"
@@ -50,7 +47,6 @@ export const Footer: React.FC = () => {
             </a>
           </div>
 
-          {/* Redes Sociais */}
           <div className="flex items-center gap-4">
             <a
               href="https://instagram.com/pamellaart_decor"
@@ -66,18 +62,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <hr className="border-stone-800/60 my-10" />
+        <hr className="border-stone-800/60 my-6 md:my-10" />
 
-        {/* Direitos Autorais e Créditos */}
-        <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4 font-light">
+        <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-3 font-light">
           <p>
             &copy; {currentYear} Pâmela Decorações. Todos os direitos
             reservados.
           </p>
           <p className="flex items-center gap-1">
             Desenvolvido com{" "}
-            <Heart size={12} className="fill-amber-500 text-amber-500" /> por
-            você.
+            <Heart size={11} className="fill-amber-500 text-amber-500" /> por{" "}
+            <span className="text-stone-400 font-medium">Júlia Oliveira</span>.
           </p>
         </div>
       </div>
